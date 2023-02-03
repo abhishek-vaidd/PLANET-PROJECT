@@ -16,6 +16,10 @@ fs.createReadStream('kepler_data.csv')
     if(isHabitablePlanets(data)) HabitablePlanets.push(data)
   })
   .on('end', () => {
-    console.log(HabitablePlanets.length);
+    console.log(HabitablePlanets.map(
+        (planet)=> {return {
+            planetName : planet.kepoi_name
+        }}
+    ));
     console.log('done')
   });
